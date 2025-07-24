@@ -1,11 +1,7 @@
 package io.github.alfregood.to_dolist.servicio;
-
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import io.github.alfregood.to_dolist.modelo.Tarea;
 import io.github.alfregood.to_dolist.modelo.Usuario;
 import io.github.alfregood.to_dolist.repositorio.TareaRepo;
@@ -13,8 +9,11 @@ import io.github.alfregood.to_dolist.repositorio.TareaRepo;
 @Service
 public class TareaServ {
 
-    @Autowired
-    private TareaRepo repositorio;
+    private final TareaRepo repositorio;
+
+    public TareaServ(TareaRepo repositorio) {
+        this.repositorio = repositorio;
+    }
 
     public Tarea guardar(Tarea tarea){
         return repositorio.save(tarea);

@@ -8,7 +8,6 @@ import io.github.alfregood.to_dolist.modelo.Usuario;
 import io.github.alfregood.to_dolist.servicio.UsuarioServ;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +19,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @RequestMapping("/inicio")
 public class InicioControlador {
 
-    @Autowired
-    private UsuarioServ servicio;
+    
+    private final UsuarioServ servicio;
+
+    public InicioControlador (UsuarioServ servicio){
+        this.servicio=servicio;
+    }
 
     @GetMapping
     public String iniciando(Model modelo) {

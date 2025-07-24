@@ -1,7 +1,6 @@
 package io.github.alfregood.to_dolist.controlador;
 
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +18,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @RequestMapping("/menu")
 public class MenuControlador {
 
-    @Autowired
-    private TareaServ servicio;
+    private final TareaServ servicio;
 
-    @Autowired
-    private UsuarioServ usuarioServ;
+    private final UsuarioServ usuarioServ;
+
+    public MenuControlador(TareaServ servicio, UsuarioServ usuarioServ) {
+        this.servicio = servicio;
+        this.usuarioServ = usuarioServ;
+    }
 
     @GetMapping
     public String usuarioIngresado(Model modelo, HttpSession session) {
