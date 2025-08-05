@@ -11,5 +11,4 @@ import io.github.alfregood.to_dolist.modelo.Usuario;
 public interface UsuarioRepo extends JpaRepository<Usuario,Long>{
 
     Optional<Usuario> findByCorreoAndContrasena(String correo, String contrasena);
-
 }
