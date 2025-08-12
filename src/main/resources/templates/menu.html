@@ -75,7 +75,7 @@
                             data-bs-target="#modalCalendario">
                             <i class="bi bi-calendar"></i> Calendario</button> <!--funciona-->
 
-                        <a th:href="@{/menu/cerrandoSesion}" class="btn btn-danger"> <!--funciona-->
+                        <a th:href="@{/menu/}" class="btn btn-danger"> <!--funciona-->
                             <i class="bi bi-person-fill-up"></i> Cerrar Sesion</a>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
 
                     <div class="modal-body">
                         <!-- Aqui cambios -->
-                        <form th:action="@{/menu/nuevo/tarea}" th:object="${tarea}" method="post">
+                        <form th:action="@{/tarea}" th:object="${tarea}" method="post">
 
                             <div class="container">
 
@@ -207,10 +207,11 @@
                             <span th:text="|${tarea.fechaVencimiento}|" style="color: brown;"></span>
                         </p>
 
-                        <div class="btn-group">
-                            <a th:href="@{/menu/completado?(id=${tarea.id})}" class="btn btn-success"
+                        <div class="btn-group"> <!-- TUVE ERRORES Y CAMBIE ESTAS DOS PARTES DE LOS BOTONES -->
+                            <a th:href="@{/tarea/{id}/completar(id=${tarea.id})}" class="btn btn-success"
                                 title="Completar Tarea"><i class="bi bi-check-circle-fill"></i></a>
-                            <a th:href="@{/menu/eliminar/tarea?(id=${tarea.id})}" class="btn btn-danger"
+
+                            <a th:href="@{/tarea/{id}/eliminar(id=${tarea.id})}" class="btn btn-danger"
                                 title="Eliminar tarea"><i class="bi bi-backspace-fill"></i></a>
                         </div>
 
