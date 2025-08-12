@@ -2,9 +2,6 @@ package io.github.alfregood.to_dolist.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -42,6 +39,5 @@ public class Usuario {
     private String contrasena;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-    @JsonManagedReference
     private List<Tarea> tareas = new ArrayList<>();
 }
