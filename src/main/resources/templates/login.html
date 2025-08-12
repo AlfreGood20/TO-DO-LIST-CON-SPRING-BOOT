@@ -25,7 +25,7 @@
 
                 <h1 class="text-start" style="font-size: 35px;">Login</h1>
 
-                <form class="mt-4" th:action="@{/inicio/logiandose}" th:object="${login}" method="post">
+                <form class="mt-4" th:action="@{/login}" th:object="${login}" method="post">
                     <div class="mb-3">
                         <label for="correo" class="form-label"
                             style="font-size: 15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
@@ -54,7 +54,7 @@
                     cuenta?</label>
 
                 <div class="d-grid mb-3">
-                    <a th:href="@{/inicio/nuevo/registro}" class="btn"
+                    <a th:href="@{/registro}" class="btn"
                         style="font-size: 100%; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Registrarme</a>
                 </div>
             </div>
@@ -62,14 +62,18 @@
     </div>
 
     <div class="container mb-2">
+
         <div class="row justify-content-center">
+
             <div class="col-md-6">
                 <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
                     <span th:text="${error}"></span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
+            
         </div>
+
     </div>
 
     <footer style="background-color: transparent; color: aliceblue;">©github AlfreGood20</footer>
