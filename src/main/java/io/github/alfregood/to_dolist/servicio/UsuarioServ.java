@@ -47,7 +47,6 @@ public class UsuarioServ {
                 return true;
             }
         }
-
         return false;
     }
 }
