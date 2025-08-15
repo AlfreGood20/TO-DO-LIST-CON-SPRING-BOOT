@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  # Servicio de spring boot 
+  app_todolist:
+    build: . # Mapea donde esta el archivo dockerfile
+    mem_limit: 512m
+    ports:
+      - "8080:8080" # Expone el puerto
+    environment: # Variables de entorno
+      - DB_URL=jdbc:mysql://database:3306/todo_list?createDatabaseIfNotExist=true&serverTimezone=UTC
+      - DB_USERNAME=root
+      - DB_PASSWORD=ADMIN
+    restart: always # Se reinicia siempre si hay un fallo
+    depends_on:  # Indicamos que este servicio depende de la base de datos que es otro servicio
+      - database
+    
+  # Contenedor de mysql 
+  database:
+    image: mysql:8.0.33 # Indicamos la imagen que debe instalar
+    ports:
+      - "3307:3306"  # Indicamos el puerto que debe abrir
+    environment:  # Variables que debe tener
+      - MYSQL_ROOT_PASSWORD=ADMIN
+      - MYSQL_DATABASE=todo_list
+      - MYSQL_PASSWORD=ADMIN
+    healthcheck:  # Control de salud para ver si se esta corriendo y poder usarlo
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]  # Comando
+      interval: 10s # Cada cuanto va ejecutar el test
+      timeout: 5s # Tiempo de espera 
+      retries: 5 # Intento de fallido
+      start_period: 30s

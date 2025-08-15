@@ -1,0 +1,13 @@
+io/github/alfregood/to_dolist/controlador/MenuControlador.class
+io/github/alfregood/to_dolist/modelo/Tarea.class
+io/github/alfregood/to_dolist/controlador/LoginControlador.class
+io/github/alfregood/to_dolist/controlador/ClimaControlador.class
+io/github/alfregood/to_dolist/servicio/TareaServ.class
+io/github/alfregood/to_dolist/controlador/TareaControlador.class
+io/github/alfregood/to_dolist/modelo/Login.class
+io/github/alfregood/to_dolist/repositorio/UsuarioRepo.class
+io/github/alfregood/to_dolist/controlador/RegistroControlador.class
+io/github/alfregood/to_dolist/modelo/Usuario.class
+io/github/alfregood/to_dolist/servicio/UsuarioServ.class
+io/github/alfregood/to_dolist/ToDolistApplication.class
+io/github/alfregood/to_dolist/repositorio/TareaRepo.class
