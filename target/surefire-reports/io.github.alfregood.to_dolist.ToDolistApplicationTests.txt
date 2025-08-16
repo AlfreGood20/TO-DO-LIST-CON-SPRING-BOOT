@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.github.alfregood.to_dolist.ToDolistApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.55 s -- in io.github.alfregood.to_dolist.ToDolistApplicationTests
