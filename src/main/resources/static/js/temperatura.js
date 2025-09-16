@@ -37,4 +37,4 @@ async function consultarClima() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", consultarClima);
+//document.addEventListener("DOMContentLoaded", consultarClima);

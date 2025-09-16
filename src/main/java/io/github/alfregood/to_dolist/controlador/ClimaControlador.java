@@ -10,12 +10,13 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/clima")
 public class ClimaControlador {
 
-    @GetMapping
+    
+    /*@GetMapping
     public String darUrlClima(@RequestParam String ciudad){
-        String apiKey=System.getenv("API_KEY_CLIMA");
-        String url = "https://api.weatherbit.io/v2.0/current?city="+ciudad+"&key="+apiKey+"&lang=es";
+        //String apiKey=System.getenv("API_KEY_CLIMA");
+        //String url = "https://api.weatherbit.io/v2.0/current?city="+ciudad+"&key="+apiKey+"&lang=es";
 
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(url, String.class);
-    }
+    }*/
 }
