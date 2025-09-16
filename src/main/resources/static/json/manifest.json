@@ -1,0 +1,27 @@
+{
+    "name": "ToDo-List",
+    "short_name": "ToDo-List",
+    "theme_color": "#FFFF7A",
+    "background_color": "#FFFF7A",
+    "display": "standalone",
+    "orientation": "natural",
+    "scope": "/",
+    "start_url": "/login",
+    "icons": [
+        {
+            "src": "/img/icons/Logo-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/img/icons/Logo-256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/img/icons/Logo-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
