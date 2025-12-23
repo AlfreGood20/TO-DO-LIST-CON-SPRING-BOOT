@@ -34,13 +34,15 @@ public class SpringSecurityConfig {
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/menu", true)
-                .failureUrl("/login")
+                .usernameParameter("correo")
+                .passwordParameter("contrasena")
+                .failureUrl("/login?error")
                 .permitAll()
             )
 
             .logout((logout) -> logout
                 .logoutSuccessUrl("/login")
-                .logoutUrl("/menu/logout")
+                .logoutUrl("/logout")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .deleteCookies("JSESSIONID")
