@@ -27,13 +27,8 @@ public class TareaControlador {
     //CREA NUEVAS TAREA /tarea
     @PostMapping
     public String nuevo(@ModelAttribute Tarea tarea, HttpSession session) {
-        Long usuarioId = (Long) session.getAttribute("USUARIO_ID");
 
-        if (usuarioId == null) {
-            return "redirect:/login";
-        }
-
-        Usuario usuario = usuarioServ.obtenerPorId(usuarioId);
+        Usuario usuario = usuarioServ.obtenerPorId((long) session.getAttribute("USER-ID"));
         tarea.setUsuario(usuario);
 
         tareaServ.guardar(tarea);

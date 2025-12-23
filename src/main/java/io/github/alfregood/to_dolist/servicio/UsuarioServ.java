@@ -1,12 +1,9 @@
 package io.github.alfregood.to_dolist.servicio;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import io.github.alfregood.to_dolist.modelo.Usuario;
 import io.github.alfregood.to_dolist.repositorio.UsuarioRepo;
 
@@ -16,18 +13,16 @@ public class UsuarioServ {
     @Autowired
     private UsuarioRepo repositorio;
 
+    @Autowired
+    private PasswordEncoder encoder;
+
     public Usuario guardar(Usuario usuario) {
+        usuario.setContrasena(encoder.encode(usuario.getContrasena()));
         return repositorio.save(usuario);
     }
 
-    public Usuario validarCredenciales(String correo, String contrasena) {
-        Optional<Usuario> usuario = repositorio.findByCorreoAndContrasena(correo, contrasena);
-
-        if (!usuario.isPresent()) {
-            return null;
-        }
-
-        return usuario.get();
+    public Usuario buscarPorCorreo(String correo){
+        return repositorio.findByCorreo(correo).orElseThrow();
     }
 
     public Usuario obtenerPorId(long id) {
@@ -40,13 +35,6 @@ public class UsuarioServ {
     }
 
     public boolean igualarCorreos(String correoUsuario) {
-        List<String> correos = repositorio.findAll().stream().map(u -> u.getCorreo()).collect(Collectors.toList());
-
-        for (String correo : correos) {
-            if (correo.equalsIgnoreCase(correoUsuario)) {
-                return true;
-            }
-        }
-        return false;
+        return repositorio.existsByCorreo(correoUsuario);
     }
 }

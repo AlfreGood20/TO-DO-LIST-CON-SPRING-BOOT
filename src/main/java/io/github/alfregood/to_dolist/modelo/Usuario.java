@@ -35,7 +35,7 @@ public class Usuario {
     @Column(nullable = false)
     private String correo;
 
-    @Column(nullable = false, length = 12)
+    @Column(nullable = false, length = 250)
     private String contrasena;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
