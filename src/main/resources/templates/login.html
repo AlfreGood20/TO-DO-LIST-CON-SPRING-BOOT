@@ -37,11 +37,28 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body
+<body style="background-image: url('https://cdn.pixabay.com/photo/2023/09/16/18/18/wallpaper-8257343_1280.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;">
 
-    style="background-image: url('https://cdn.pixabay.com/photo/2023/09/16/18/18/wallpaper-8257343_1280.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="container mb-2" style="margin-top: 80px;">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-6">
+                <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span>Correo o contraseña incorrectas</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
     
-    <div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="d-flex flex-column justify-content-center align-items-center ">
 
         <div class="card" style="width: 25rem; height: 25rem; border-radius: 25px;">
             <div class="card-body text-center">
@@ -54,8 +71,7 @@
                             style="font-size: 15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                             Correo
                         </label>
-                        <input type="email" class="form-control" id="correo" placeholder="nombre@ejemplo.com"
-                            th:field="*{correo}" required>
+                        <input type="email" class="form-control" id="correo" placeholder="nombre@ejemplo.com" name="correo" required>
                     </div>
 
                     <div class="mb-4">
@@ -63,9 +79,10 @@
                             style="font-size: 15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                             Contraseña
                         </label>
-                        <input type="password" class="form-control" id="password" placeholder="*******************"
-                            th:field="*{contrasena}" required>
+                        <input type="password" class="form-control" id="password" placeholder="*******************" name="contrasena" required>
                     </div>
+
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
                     <div class="d-grid mb-3">
                         <button type="submit" class="btn btn-outline-primary">Entrar</button>
@@ -84,23 +101,8 @@
         </div>
     </div>
 
-    <div class="container mb-2">
 
-        <div class="row justify-content-center">
-
-            <div class="col-md-6">
-                <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <span th:text="${error}"></span>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-            
-        </div>
-
-    </div>
-
-    <footer style="background-color: transparent; color: aliceblue;">©github AlfreGood20</footer>
-
+    <footer style="background-color: transparent; color: aliceblue; margin-top: 80px;">©github AlfreGood20</footer>
     <script src="/js/Service_Worker.js"></script>
 </body>
 

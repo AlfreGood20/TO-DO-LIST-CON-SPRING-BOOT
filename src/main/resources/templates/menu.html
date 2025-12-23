@@ -75,8 +75,12 @@
                             data-bs-target="#modalCalendario">
                             <i class="bi bi-calendar"></i> Calendario</button> <!--funciona-->
 
-                        <a th:href="@{/menu/}" class="btn btn-danger"> <!--funciona-->
-                            <i class="bi bi-person-fill-up"></i> Cerrar Sesion</a>
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-person-fill-up"></i> Cerrar Sesion
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
